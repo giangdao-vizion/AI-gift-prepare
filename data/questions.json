@@ -1,0 +1,669 @@
+{
+  "version": "1.0.0",
+  "quizId": "luna-discovery-v1",
+  "locale": "vi",
+  "meta": {
+    "title": "AI Luna Advisor",
+    "tagline": "Khám phá nhu cầu cá nhân và tìm những món đồ giúp bạn hạnh phúc hơn",
+    "description": "Bộ câu hỏi khám phá mong ước bản thân — từ tổng quan đến chi tiết."
+  },
+  "flow": {
+    "entryQuestionId": "life_aspects",
+    "afterAspects": "aspect_followups",
+    "closingQuestionIds": ["gift_style", "budget_comfort", "surprise_level"]
+  },
+  "aspects": [
+    {
+      "id": "health",
+      "label": "Sức khoẻ",
+      "emoji": "🌿",
+      "color": "#3BA89A"
+    },
+    {
+      "id": "mental",
+      "label": "Tâm lý & cảm xúc",
+      "emoji": "🌙",
+      "color": "#5B8DEF"
+    },
+    {
+      "id": "finance",
+      "label": "Tài chính",
+      "emoji": "💳",
+      "color": "#2F9E7A"
+    },
+    {
+      "id": "cooking",
+      "label": "Nấu ăn",
+      "emoji": "🍳",
+      "color": "#E07A5F"
+    },
+    {
+      "id": "travel",
+      "label": "Du lịch",
+      "emoji": "✈️",
+      "color": "#4C8DDE"
+    },
+    {
+      "id": "growth",
+      "label": "Phát triển bản thân",
+      "emoji": "✨",
+      "color": "#C77DFF"
+    },
+    {
+      "id": "parenting",
+      "label": "Chăm lo con cái",
+      "emoji": "👶",
+      "color": "#F4A261"
+    },
+    {
+      "id": "beauty",
+      "label": "Làm đẹp & chăm sóc bản thân",
+      "emoji": "🧴",
+      "color": "#E5989B"
+    },
+    {
+      "id": "home",
+      "label": "Không gian sống",
+      "emoji": "🏡",
+      "color": "#81B29A"
+    },
+    {
+      "id": "hobby",
+      "label": "Sở thích & giải trí",
+      "emoji": "🎨",
+      "color": "#F2CC8F"
+    },
+    {
+      "id": "relationship",
+      "label": "Tình cảm & kết nối",
+      "emoji": "💕",
+      "color": "#E76F51"
+    },
+    {
+      "id": "work",
+      "label": "Công việc & sự nghiệp",
+      "emoji": "💼",
+      "color": "#457B9D"
+    }
+  ],
+  "questions": [
+    {
+      "id": "life_aspects",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 6,
+      "stage": "overview",
+      "title": "Bạn đang quan tâm tới những khía cạnh nào trong cuộc sống?",
+      "subtitle": "Chọn những mục đang thật sự chiếm chỗ trong đầu bạn lúc này (có thể chọn nhiều).",
+      "optionSource": "aspects",
+      "tagsFromOptions": true
+    },
+    {
+      "id": "health_improve",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "health",
+      "title": "Về sức khoẻ, bạn muốn cải thiện điều gì?",
+      "subtitle": "Chọn những điều đang khiến bạn muốn thay đổi.",
+      "options": [
+        { "id": "sleep", "label": "Ngủ ngon & sâu hơn", "tags": ["sleep", "wellness"] },
+        { "id": "energy", "label": "Tăng năng lượng ban ngày", "tags": ["energy", "wellness"] },
+        { "id": "fitness", "label": "Vận động / tập luyện đều hơn", "tags": ["fitness", "active"] },
+        { "id": "nutrition", "label": "Ăn uống lành mạnh hơn", "tags": ["nutrition", "cooking"] },
+        { "id": "pain", "label": "Giảm mệt mỏi / đau nhức", "tags": ["recovery", "comfort"] },
+        { "id": "checkup", "label": "Theo dõi sức khoẻ chủ động hơn", "tags": ["healthtech", "selfcare"] }
+      ]
+    },
+    {
+      "id": "health_barrier",
+      "type": "single",
+      "required": true,
+      "stage": "detail",
+      "aspectId": "health",
+      "title": "Điều gì đang cản trở bạn nhất?",
+      "subtitle": "Chọn 1 lý do gần đúng nhất.",
+      "options": [
+        { "id": "no_time", "label": "Thiếu thời gian", "tags": ["time-poor"] },
+        { "id": "no_habit", "label": "Chưa có thói quen", "tags": ["habit"] },
+        { "id": "no_tool", "label": "Thiếu dụng cụ / hỗ trợ phù hợp", "tags": ["need-tools"] },
+        { "id": "no_motivation", "label": "Thiếu động lực", "tags": ["motivation"] },
+        { "id": "unsure", "label": "Chưa biết bắt đầu từ đâu", "tags": ["guidance"] }
+      ]
+    },
+    {
+      "id": "mental_need",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "mental",
+      "title": "Về tâm lý & cảm xúc, bạn đang cần gì nhiều nhất?",
+      "subtitle": "Hãy chọn những cảm giác bạn muốn có thêm.",
+      "options": [
+        { "id": "calm", "label": "Bình yên / giảm căng thẳng", "tags": ["calm", "mindfulness"] },
+        { "id": "joy", "label": "Niềm vui nhỏ mỗi ngày", "tags": ["joy", "treat"] },
+        { "id": "focus", "label": "Tập trung hơn", "tags": ["focus", "productivity"] },
+        { "id": "alone_time", "label": "Không gian riêng cho bản thân", "tags": ["me-time", "comfort"] },
+        { "id": "express", "label": "Được lắng nghe / bày tỏ", "tags": ["connection", "journal"] },
+        { "id": "confidence", "label": "Tự tin hơn về bản thân", "tags": ["confidence", "growth"] }
+      ]
+    },
+    {
+      "id": "mental_ritual",
+      "type": "single",
+      "required": true,
+      "stage": "detail",
+      "aspectId": "mental",
+      "title": "Bạn thích kiểu chăm sóc tinh thần nào?",
+      "subtitle": "Chọn phong cách gần với bạn nhất.",
+      "options": [
+        { "id": "quiet", "label": "Yên tĩnh: đọc sách, trà, nhạc nhẹ", "tags": ["books", "tea", "cozy"] },
+        { "id": "creative", "label": "Sáng tạo: vẽ, viết, làm đồ handmade", "tags": ["creative", "hobby"] },
+        { "id": "body", "label": "Cơ thể: yoga, đi bộ, thở sâu", "tags": ["yoga", "active", "mindfulness"] },
+        { "id": "social", "label": "Kết nối: nói chuyện với người thân", "tags": ["connection", "relationship"] },
+        { "id": "treat", "label": "Tự thưởng: spa, skincare, món ngon", "tags": ["beauty", "treat", "foodie"] }
+      ]
+    },
+    {
+      "id": "finance_goal",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 3,
+      "stage": "detail",
+      "aspectId": "finance",
+      "title": "Về tài chính, mục tiêu gần nhất của bạn là gì?",
+      "subtitle": "Chọn những điều bạn muốn làm rõ hơn.",
+      "options": [
+        { "id": "track", "label": "Theo dõi chi tiêu rõ ràng hơn", "tags": ["budgeting", "productivity"] },
+        { "id": "save", "label": "Tiết kiệm có kế hoạch", "tags": ["saving", "planning"] },
+        { "id": "invest", "label": "Học đầu tư cơ bản", "tags": ["investing", "learning"] },
+        { "id": "debt", "label": "Giảm áp lực nợ / trả góp", "tags": ["debt", "planning"] },
+        { "id": "reward", "label": "Chi tiêu có ý thức nhưng vẫn được thưởng", "tags": ["mindful-spend", "treat"] }
+      ]
+    },
+    {
+      "id": "cooking_style",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "cooking",
+      "title": "Trong bếp, bạn đang muốn gì?",
+      "subtitle": "Chọn những điều khiến bạn hứng thú.",
+      "options": [
+        { "id": "easy_meals", "label": "Nấu nhanh mà vẫn ngon", "tags": ["easy-cook", "kitchen"] },
+        { "id": "healthy_meals", "label": "Bữa ăn healthy hơn", "tags": ["nutrition", "kitchen"] },
+        { "id": "bake", "label": "Làm bánh / đồ ngọt", "tags": ["baking", "hobby"] },
+        { "id": "tools", "label": "Nâng cấp dụng cụ nhà bếp", "tags": ["kitchen-tools", "home"] },
+        { "id": "new_cuisine", "label": "Thử món / ẩm thực mới", "tags": ["foodie", "explore"] },
+        { "id": "meal_prep", "label": "Chuẩn bị sẵn cho cả tuần", "tags": ["meal-prep", "planning"] }
+      ]
+    },
+    {
+      "id": "travel_desire",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "travel",
+      "title": "Về du lịch, bạn đang mơ tới điều gì?",
+      "subtitle": "Có thể là chuyến đi gần hoặc xa.",
+      "options": [
+        { "id": "weekend", "label": "Escape cuối tuần gần nhà", "tags": ["short-trip", "rest"] },
+        { "id": "nature", "label": "Thiên nhiên / biển / núi", "tags": ["nature", "outdoor"] },
+        { "id": "city", "label": "Thành phố mới / cafe hopping", "tags": ["city", "foodie"] },
+        { "id": "gear", "label": "Có đồ du lịch tiện hơn", "tags": ["travel-gear"] },
+        { "id": "photo", "label": "Chụp ảnh đẹp hơn trên đường đi", "tags": ["photo", "creative"] },
+        { "id": "plan", "label": "Lên kế hoạch chuyến đi trong năm", "tags": ["planning", "adventure"] }
+      ]
+    },
+    {
+      "id": "growth_focus",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "growth",
+      "title": "Bạn muốn phát triển bản thân theo hướng nào?",
+      "subtitle": "Chọn những lĩnh vực đang gọi tên bạn.",
+      "options": [
+        { "id": "skill", "label": "Học kỹ năng mới", "tags": ["learning", "courses"] },
+        { "id": "language", "label": "Ngoại ngữ", "tags": ["language", "learning"] },
+        { "id": "reading", "label": "Đọc nhiều hơn", "tags": ["books", "focus"] },
+        { "id": "habit", "label": "Xây dựng thói quen tốt", "tags": ["habit", "planning"] },
+        { "id": "career", "label": "Định hướng sự nghiệp", "tags": ["career", "productivity"] },
+        { "id": "creativity", "label": "Nuôi dưỡng sự sáng tạo", "tags": ["creative", "hobby"] }
+      ]
+    },
+    {
+      "id": "parenting_need",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "parenting",
+      "title": "Khi chăm con, bạn đang muốn hỗ trợ điều gì?",
+      "subtitle": "Chọn những nhu cầu đang nổi bật.",
+      "options": [
+        { "id": "play", "label": "Đồ chơi / hoạt động gắn kết", "tags": ["kids-play", "bonding"] },
+        { "id": "learn", "label": "Học tập / phát triển tư duy", "tags": ["kids-learn", "books"] },
+        { "id": "routine", "label": "Xây dựng thói quen tốt cho bé", "tags": ["kids-routine", "planning"] },
+        { "id": "self_time", "label": "Vẫn có thời gian cho bản thân", "tags": ["me-time", "parent-selfcare"] },
+        { "id": "comfort", "label": "Đồ dùng tiện ích cho mẹ & bé", "tags": ["parent-tools", "comfort"] },
+        { "id": "outdoor", "label": "Hoạt động ngoài trời cùng nhau", "tags": ["outdoor", "family"] }
+      ]
+    },
+    {
+      "id": "beauty_focus",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "beauty",
+      "title": "Bạn muốn chăm sóc bản thân theo hướng nào?",
+      "subtitle": "Chọn những điều khiến bạn thấy được yêu thương.",
+      "options": [
+        { "id": "skincare", "label": "Skincare / da khoẻ", "tags": ["skincare", "selfcare"] },
+        { "id": "hair", "label": "Chăm sóc tóc", "tags": ["haircare", "selfcare"] },
+        { "id": "fragrance", "label": "Nước hoa / hương thơm", "tags": ["fragrance", "treat"] },
+        { "id": "body", "label": "Body care / massage", "tags": ["bodycare", "relax"] },
+        { "id": "makeup", "label": "Makeup nhẹ nhàng", "tags": ["makeup", "beauty"] },
+        { "id": "ritual", "label": "Ritual tự thưởng buổi tối", "tags": ["ritual", "cozy"] }
+      ]
+    },
+    {
+      "id": "home_improve",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "home",
+      "title": "Không gian sống của bạn đang cần gì?",
+      "subtitle": "Chọn những thay đổi nhỏ bạn muốn thấy.",
+      "options": [
+        { "id": "cozy", "label": "Ấm cúng hơn", "tags": ["cozy", "home-decor"] },
+        { "id": "organize", "label": "Gọn gàng / ngăn nắp hơn", "tags": ["organize", "productivity"] },
+        { "id": "scent", "label": "Hương thơm dễ chịu", "tags": ["fragrance", "ambiance"] },
+        { "id": "plants", "label": "Thêm cây xanh", "tags": ["plants", "nature"] },
+        { "id": "light", "label": "Ánh sáng / đèn ngủ đẹp hơn", "tags": ["lighting", "ambiance"] },
+        { "id": "workspace", "label": "Góc làm việc / học tập tốt hơn", "tags": ["workspace", "productivity"] }
+      ]
+    },
+    {
+      "id": "hobby_interest",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "hobby",
+      "title": "Sở thích nào đang gọi bạn nhiều nhất?",
+      "subtitle": "Chọn những hoạt động bạn muốn dành thời gian hơn.",
+      "options": [
+        { "id": "music", "label": "Âm nhạc / nghe nhạc hay", "tags": ["music", "relax"] },
+        { "id": "movies", "label": "Phim / series / xem chill", "tags": ["movies", "cozy"] },
+        { "id": "craft", "label": "Handmade / DIY", "tags": ["craft", "creative"] },
+        { "id": "games", "label": "Game / board game", "tags": ["games", "fun"] },
+        { "id": "photo", "label": "Nhiếp ảnh", "tags": ["photo", "creative"] },
+        { "id": "collect", "label": "Sưu tầm đồ nhỏ xinh", "tags": ["collectible", "aesthetic"] }
+      ]
+    },
+    {
+      "id": "relationship_need",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 3,
+      "stage": "detail",
+      "aspectId": "relationship",
+      "title": "Trong tình cảm & kết nối, bạn đang khao khát gì?",
+      "subtitle": "Chọn những điều khiến bạn cảm thấy được yêu thương.",
+      "options": [
+        { "id": "quality_time", "label": "Thời gian chất lượng cùng nhau", "tags": ["quality-time", "date"] },
+        { "id": "surprise", "label": "Được bất ngờ nhẹ nhàng", "tags": ["surprise", "treat"] },
+        { "id": "words", "label": "Lời nói / thư tay ý nghĩa", "tags": ["words", "sentimental"] },
+        { "id": "shared", "label": "Trải nghiệm chung mới", "tags": ["experience", "adventure"] },
+        { "id": "care", "label": "Sự quan tâm tới sở thích của mình", "tags": ["thoughtful", "personalized"] }
+      ]
+    },
+    {
+      "id": "work_need",
+      "type": "multi",
+      "required": true,
+      "minSelect": 1,
+      "maxSelect": 4,
+      "stage": "detail",
+      "aspectId": "work",
+      "title": "Ở công việc, bạn muốn cải thiện điều gì?",
+      "subtitle": "Chọn những điểm đang ảnh hưởng tới năng lượng của bạn.",
+      "options": [
+        { "id": "focus_work", "label": "Tập trung sâu hơn", "tags": ["focus", "productivity"] },
+        { "id": "setup", "label": "Setup làm việc tiện nghi hơn", "tags": ["workspace", "ergonomic"] },
+        { "id": "balance", "label": "Cân bằng công việc – cuộc sống", "tags": ["balance", "rest"] },
+        { "id": "skill_up", "label": "Nâng kỹ năng chuyên môn", "tags": ["learning", "career"] },
+        { "id": "confidence_work", "label": "Tự tin khi trình bày / lãnh đạo", "tags": ["confidence", "career"] },
+        { "id": "inspire", "label": "Cảm hứng sáng tạo lại", "tags": ["creative", "motivation"] }
+      ]
+    },
+    {
+      "id": "gift_style",
+      "type": "single",
+      "required": true,
+      "stage": "closing",
+      "title": "Khi nhận quà, bạn thích kiểu nào nhất?",
+      "subtitle": "Câu trả lời này giúp Luna gợi ý món đồ phù hợp hơn.",
+      "options": [
+        { "id": "practical", "label": "Thực tế, dùng được ngay", "tags": ["gift-practical"] },
+        { "id": "emotional", "label": "Cảm xúc, ý nghĩa, cá nhân hoá", "tags": ["gift-emotional"] },
+        { "id": "experience", "label": "Trải nghiệm hơn là đồ vật", "tags": ["gift-experience"] },
+        { "id": "aesthetic", "label": "Đẹp, tinh tế, đúng gu thẩm mỹ", "tags": ["gift-aesthetic"] },
+        { "id": "surprise_mix", "label": "Bất kỳ miễn là bất ngờ dễ thương", "tags": ["gift-surprise"] }
+      ]
+    },
+    {
+      "id": "budget_comfort",
+      "type": "single",
+      "required": true,
+      "stage": "closing",
+      "title": "Mức chi tiêu cho món quà khiến bạn thấy thoải mái?",
+      "subtitle": "Chọn khoảng gần đúng — dùng để gợi ý sau này.",
+      "options": [
+        { "id": "under_200", "label": "Dưới 200.000đ", "tags": ["budget-low"] },
+        { "id": "200_500", "label": "200.000 – 500.000đ", "tags": ["budget-mid"] },
+        { "id": "500_1000", "label": "500.000 – 1.000.000đ", "tags": ["budget-high"] },
+        { "id": "over_1000", "label": "Trên 1.000.000đ", "tags": ["budget-premium"] },
+        { "id": "flexible", "label": "Linh hoạt, miễn đúng ý", "tags": ["budget-flex"] }
+      ]
+    },
+    {
+      "id": "surprise_level",
+      "type": "single",
+      "required": true,
+      "stage": "closing",
+      "title": "Bạn thích được bất ngờ đến mức nào?",
+      "subtitle": "Giúp người tặng cân bằng giữa đoán ý và hỏi trước.",
+      "options": [
+        { "id": "hint", "label": "Thích gợi ý nhẹ, đừng hỏi thẳng", "tags": ["surprise-soft"] },
+        { "id": "half", "label": "Hỏi khoảng ý là được", "tags": ["surprise-balanced"] },
+        { "id": "full", "label": "Càng bất ngờ càng vui", "tags": ["surprise-full"] },
+        { "id": "plan", "label": "Thích lên kế hoạch cùng nhau", "tags": ["surprise-shared"] }
+      ]
+    }
+  ],
+  "recommendationCatalog": {
+    "actions": {
+      "day": [
+        {
+          "id": "day_breathe",
+          "whenTagsAny": ["calm", "mindfulness", "rest"],
+          "title": "5 phút thở sâu trước khi ngủ",
+          "detail": "Tắt thông báo, ngồi yên và hít thở chậm — một khởi đầu nhỏ cho sự bình yên."
+        },
+        {
+          "id": "day_water",
+          "whenTagsAny": ["energy", "wellness", "nutrition"],
+          "title": "Chuẩn bị một bình nước đẹp cho ngày mai",
+          "detail": "Một món nhỏ trong tầm mắt giúp bạn uống đủ nước dễ dàng hơn."
+        },
+        {
+          "id": "day_note",
+          "whenTagsAny": ["joy", "journal", "words", "sentimental"],
+          "title": "Viết 3 điều khiến bạn thấy dễ chịu hôm nay",
+          "detail": "Không cần dài — chỉ cần thành thật với cảm xúc của mình."
+        },
+        {
+          "id": "day_tidy",
+          "whenTagsAny": ["organize", "workspace", "productivity"],
+          "title": "Dọn một góc nhỏ trong 10 phút",
+          "detail": "Chỉ một ngăn kéo hoặc bàn làm việc cũng đủ tạo cảm giác kiểm soát."
+        },
+        {
+          "id": "day_cook",
+          "whenTagsAny": ["easy-cook", "cooking", "foodie", "nutrition"],
+          "title": "Nấu / đặt một món bạn thực sự thèm",
+          "detail": "Cho phép bản thân được thưởng thức — hạnh phúc đôi khi bắt đầu từ vị giác."
+        },
+        {
+          "id": "day_walk",
+          "whenTagsAny": ["fitness", "outdoor", "yoga", "active"],
+          "title": "Đi bộ 15 phút không điện thoại",
+          "detail": "Để cơ thể và đầu óc được thở ngoài không gian làm việc."
+        },
+        {
+          "id": "day_skincare",
+          "whenTagsAny": ["skincare", "selfcare", "ritual", "beauty"],
+          "title": "Làm một bước skincare thật chậm",
+          "detail": "Biến việc chăm da thành nghi thức tự yêu thương, không phải checklist."
+        },
+        {
+          "id": "day_default",
+          "whenTagsAny": ["*"],
+          "title": "Dành 20 phút chỉ cho bản thân",
+          "detail": "Không multitask — chỉ làm một việc khiến bạn thấy nhẹ hơn."
+        }
+      ],
+      "week": [
+        {
+          "id": "week_habit",
+          "whenTagsAny": ["habit", "planning", "fitness", "sleep"],
+          "title": "Chọn 1 thói quen nhỏ và làm 4/7 ngày",
+          "detail": "Ví dụ: ngủ trước 23h, tập 20 phút, hoặc ghi nhật ký cảm xúc."
+        },
+        {
+          "id": "week_date",
+          "whenTagsAny": ["quality-time", "date", "connection", "relationship"],
+          "title": "Lên một buổi hẹn chất lượng",
+          "detail": "Cafe, nấu ăn cùng nhau, hoặc xem phim không điện thoại."
+        },
+        {
+          "id": "week_learn",
+          "whenTagsAny": ["learning", "courses", "language", "books", "growth"],
+          "title": "Dành 3 buổi ngắn để học điều mới",
+          "detail": "Mỗi buổi 25–40 phút — đủ để tạo đà mà không áp lực."
+        },
+        {
+          "id": "week_home",
+          "whenTagsAny": ["home-decor", "cozy", "plants", "lighting", "ambiance"],
+          "title": "Làm mới một góc trong nhà",
+          "detail": "Thêm đèn, cây, hoặc sắp xếp lại để không gian dịu hơn."
+        },
+        {
+          "id": "week_kitchen",
+          "whenTagsAny": ["kitchen", "baking", "meal-prep", "kitchen-tools"],
+          "title": "Thử 1 công thức mới trong tuần",
+          "detail": "Chọn món vừa sức — thành công nhỏ cũng tạo niềm vui lớn."
+        },
+        {
+          "id": "week_trip",
+          "whenTagsAny": ["short-trip", "nature", "travel-gear", "adventure"],
+          "title": "Lên ý tưởng cho 1 chuyến đi gần",
+          "detail": "Ngay cả việc lưu 3 địa điểm cũng khiến tuần lễ thú vị hơn."
+        },
+        {
+          "id": "week_default",
+          "whenTagsAny": ["*"],
+          "title": "Review cuối tuần: điều gì khiến bạn vui?",
+          "detail": "Ghi lại để Luna (và bạn) hiểu rõ hơn những gì thực sự hợp với mình."
+        }
+      ],
+      "month": [
+        {
+          "id": "month_goal",
+          "whenTagsAny": ["planning", "growth", "career", "saving"],
+          "title": "Đặt 1 mục tiêu rõ ràng cho 30 ngày",
+          "detail": "Viết ra tiêu chí hoàn thành cụ thể — dễ đo, dễ tự thưởng."
+        },
+        {
+          "id": "month_experience",
+          "whenTagsAny": ["experience", "adventure", "travel", "gift-experience"],
+          "title": "Lên lịch một trải nghiệm đáng nhớ",
+          "detail": "Workshop, spa, picnic, hoặc chuyến đi ngắn — ưu tiên kỷ niệm hơn đồ vật."
+        },
+        {
+          "id": "month_toolkit",
+          "whenTagsAny": ["need-tools", "kitchen-tools", "workspace", "travel-gear", "healthtech"],
+          "title": "Đầu tư 1 món hỗ trợ đúng nhu cầu",
+          "detail": "Chọn món sẽ dùng ít nhất 2–3 lần/tuần — quà thực tế thường bền cảm xúc."
+        },
+        {
+          "id": "month_beauty",
+          "whenTagsAny": ["skincare", "bodycare", "fragrance", "ritual", "selfcare"],
+          "title": "Xây một ritual chăm sóc bản thân cố định",
+          "detail": "Ví dụ tối Chủ nhật: mặt nạ + nhạc nhẹ + tắt việc sớm."
+        },
+        {
+          "id": "month_family",
+          "whenTagsAny": ["kids-play", "bonding", "family", "parent-selfcare"],
+          "title": "Tạo 1 hoạt động gắn kết định kỳ",
+          "detail": "Chơi board game, đọc sách cùng nhau, hoặc dã ngoại cuối tháng."
+        },
+        {
+          "id": "month_default",
+          "whenTagsAny": ["*"],
+          "title": "Tự thưởng khi hoàn thành một cột mốc nhỏ",
+          "detail": "Hãy để phần thưởng khớp với phong cách quà bạn đã chọn ở cuối quiz."
+        }
+      ]
+    },
+    "gifts": [
+      {
+        "id": "gift_sleep_set",
+        "title": "Set ngủ ngon (eye mask + tinh dầu nhẹ)",
+        "reason": "Phù hợp khi bạn muốn cải thiện giấc ngủ và sự bình yên.",
+        "whenTagsAny": ["sleep", "calm", "cozy", "rest"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-flex"]
+      },
+      {
+        "id": "gift_bottle",
+        "title": "Bình giữ nhiệt / bình nước đẹp",
+        "reason": "Món thực tế giúp duy trì năng lượng và thói quen lành mạnh.",
+        "whenTagsAny": ["energy", "fitness", "wellness", "gift-practical"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      },
+      {
+        "id": "gift_journal",
+        "title": "Sổ tay đẹp + bút viết cảm xúc",
+        "reason": "Hỗ trợ bày tỏ, tập trung và ghi nhận những điều khiến bạn hạnh phúc.",
+        "whenTagsAny": ["journal", "focus", "books", "words", "sentimental"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      },
+      {
+        "id": "gift_tea",
+        "title": "Set trà / cacao tự thưởng",
+        "reason": "Nghi thức nhỏ mỗi tối giúp giảm căng thẳng rất hiệu quả.",
+        "whenTagsAny": ["tea", "cozy", "calm", "ritual", "treat"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      },
+      {
+        "id": "gift_skincare",
+        "title": "Mini skincare / mặt nạ yêu thích",
+        "reason": "Món quà chăm sóc bản thân — vừa thực tế vừa cảm xúc.",
+        "whenTagsAny": ["skincare", "selfcare", "beauty", "ritual", "bodycare"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-flex"]
+      },
+      {
+        "id": "gift_perfume",
+        "title": "Nước hoa / body mist đúng gu",
+        "reason": "Hương thơm là món quà cá nhân hoá và dễ tạo dấu ấn.",
+        "whenTagsAny": ["fragrance", "gift-aesthetic", "treat", "ambiance"],
+        "budgetHints": ["budget-high", "budget-premium", "budget-flex"]
+      },
+      {
+        "id": "gift_kitchen",
+        "title": "Dụng cụ bếp tiện lợi hoặc set làm bánh",
+        "reason": "Khi nấu ăn đang là niềm vui / nhu cầu cải thiện rõ ràng.",
+        "whenTagsAny": ["kitchen", "kitchen-tools", "baking", "easy-cook", "foodie"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-flex"]
+      },
+      {
+        "id": "gift_plant",
+        "title": "Cây nhỏ + chậu xinh",
+        "reason": "Làm mới không gian sống và mang lại cảm giác sống động mỗi ngày.",
+        "whenTagsAny": ["plants", "home-decor", "nature", "ambiance"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      },
+      {
+        "id": "gift_lamp",
+        "title": "Đèn ngủ / đèn góc ấm",
+        "reason": "Ánh sáng dịu giúp không gian trở nên đáng ở hơn ngay lập tức.",
+        "whenTagsAny": ["lighting", "cozy", "home-decor", "workspace"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-flex"]
+      },
+      {
+        "id": "gift_headphones",
+        "title": "Tai nghe / loa nhỏ nghe nhạc",
+        "reason": "Phù hợp nếu âm nhạc là cách bạn nạp lại năng lượng.",
+        "whenTagsAny": ["music", "focus", "relax", "gift-practical"],
+        "budgetHints": ["budget-high", "budget-premium", "budget-flex"]
+      },
+      {
+        "id": "gift_camera",
+        "title": "Phụ kiện chụp ảnh / instant camera film",
+        "reason": "Dành cho người thích lưu giữ khoảnh khắc khi đi chơi.",
+        "whenTagsAny": ["photo", "travel-gear", "creative", "adventure"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-premium", "budget-flex"]
+      },
+      {
+        "id": "gift_course",
+        "title": "Khoá học / workshop ngắn",
+        "reason": "Quà trải nghiệm — phát triển bản thân mà vẫn vui.",
+        "whenTagsAny": ["learning", "courses", "creative", "gift-experience", "growth"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-premium", "budget-flex"]
+      },
+      {
+        "id": "gift_date",
+        "title": "Voucher trải nghiệm hẹn hò / spa / picnic set",
+        "reason": "Khi bạn khao khát thời gian chất lượng và sự bất ngờ dễ thương.",
+        "whenTagsAny": ["quality-time", "date", "experience", "gift-experience", "surprise"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-premium", "budget-flex"]
+      },
+      {
+        "id": "gift_kids",
+        "title": "Đồ chơi giáo dục / sách tương tác cho bé",
+        "reason": "Hỗ trợ gắn kết và phát triển khi chăm con đang là ưu tiên.",
+        "whenTagsAny": ["kids-play", "kids-learn", "bonding", "family"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-flex"]
+      },
+      {
+        "id": "gift_bag",
+        "title": "Túi du lịch gọn / phụ kiện travel",
+        "reason": "Hữu ích nếu bạn đang muốn đi nhiều hơn và tiện hơn.",
+        "whenTagsAny": ["travel-gear", "short-trip", "adventure"],
+        "budgetHints": ["budget-mid", "budget-high", "budget-flex"]
+      },
+      {
+        "id": "gift_letter",
+        "title": "Thư tay + món nhỏ cá nhân hoá",
+        "reason": "Phù hợp với gu cảm xúc và bất ngờ nhẹ nhàng.",
+        "whenTagsAny": ["gift-emotional", "words", "sentimental", "surprise-soft"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      },
+      {
+        "id": "gift_organize",
+        "title": "Hộp/kệ sắp xếp gọn gàng",
+        "reason": "Món quà thực tế giúp không gian và đầu óc thông thoáng hơn.",
+        "whenTagsAny": ["organize", "productivity", "workspace", "gift-practical"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      },
+      {
+        "id": "gift_craft",
+        "title": "Kit DIY / handmade",
+        "reason": "Nuôi dưỡng sự sáng tạo và thời gian me-time thú vị.",
+        "whenTagsAny": ["craft", "creative", "hobby", "me-time"],
+        "budgetHints": ["budget-low", "budget-mid", "budget-flex"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AI Luna Advisor">
+  <defs>
+    <linearGradient id="moonGrad" x1="18%" y1="12%" x2="86%" y2="92%">
+      <stop offset="0%" stop-color="#7ED6C5"/>
+      <stop offset="55%" stop-color="#3BA89A"/>
+      <stop offset="100%" stop-color="#2A7A72"/>
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB4A2"/>
+      <stop offset="100%" stop-color="#F28482"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="60" fill="#F3FBFA"/>
+  <path d="M78 24c-22 4-38 24-38 47 0 26 21 47 47 47 6 0 12-1 17-3-12 8-27 10-41 5C40 110 24 88 24 62 24 38 41 18 64 12c5-1 10-1 14 0-1 4-1 8 0 12z" fill="url(#moonGrad)"/>
+  <path d="M96 34l3.2 7.2 7.8 1.1-5.7 5.6 1.4 7.8L96 51.8l-6.7 3.9 1.4-7.8-5.7-5.6 7.8-1.1L96 34z" fill="url(#starGrad)"/>
+  <circle cx="52" cy="58" r="3.2" fill="#E8FFFB" opacity=".9"/>
+  <circle cx="68" cy="72" r="2.2" fill="#E8FFFB" opacity=".75"/>
+</svg>
