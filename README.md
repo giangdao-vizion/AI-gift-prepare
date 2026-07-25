@@ -16,7 +16,21 @@ npx --yes serve -l 8080
 
 Truy cập `http://localhost:8080`.
 
-Có thể đẩy nguyên thư mục lên Netlify / Cloudflare Pages / GitHub Pages / bất kỳ static hosting nào.
+## GitHub Pages
+
+Repo đã có workflow `.github/workflows/deploy-pages.yml` và nhánh `gh-pages`.
+
+Bật Pages 1 lần (cần quyền admin của repo):
+
+1. Mở [Settings → Pages](https://github.com/giangdao-vizion/AI-gift-prepare/settings/pages)
+2. **Source**: chọn **GitHub Actions** (khuyến nghị) *hoặc* Deploy from branch `gh-pages` / `(root)`
+3. Save — site sẽ lên tại:
+
+**https://giangdao-vizion.github.io/AI-gift-prepare/**
+
+CDN mirror (dùng được ngay từ `main`):
+
+**https://cdn.jsdelivr.net/gh/giangdao-vizion/AI-gift-prepare@main/index.html**
 
 ## Cấu trúc
 
